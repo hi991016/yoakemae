@@ -33,14 +33,28 @@
 
     <!-- @adobe fonts -->
     <script>
+        // 一覧最初に記載
+        function clearLoading() {
+            setTimeout(() => {
+                document.body.classList.remove('fadeout');
+            }, 1000);
+        }
         (function (d) {
             var config = {
                 kitId: 'xpq6enu',
                 scriptTimeout: 3000,
-                async: true
+                async: true,
+                // ここが重要
+                active: function () {
+                    clearLoading();
+                }
             },
                 h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
         })(document);
+        // 低速環境を考慮
+        setTimeout(function () {
+            clearLoading();
+        }, 3000);
     </script>
 
     <!-- @master css -->
@@ -545,11 +559,11 @@
             <!-- news -->
             <section class="news js-sections" id="news">
                 <div class="news_container l-container">
-                    <div class="news_wrapper js-is-blur">
-                        <div class="news_left">
+                    <div class="c-news_wrapper js-is-blur">
+                        <div class="c-news_left">
                             <h2 class="txt3">News</h2>
                         </div>
-                        <div class="news_right">
+                        <div class="c-news_right">
                             <div class="c-news_list txt7">
                                 <a href="/news/detail.html" class="c-news_items">
                                     <p>2024.08.30 fri</p>
@@ -660,9 +674,13 @@
     </div>
 
     <!-- @script -->
-    <script src="/assets/js/libs.js"></script>
     <script src="/assets/js/jb.tracker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- // -->
+    <script src="/assets/js/libs.js"></script>
     <script src="/assets/js/home.js"></script>
+    <!-- // -->
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

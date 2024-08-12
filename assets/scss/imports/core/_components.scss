@@ -277,6 +277,41 @@
 
 // ===== news =====
 .c-news {
+  &_wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include maxW(1023px) {
+      display: block;
+    }
+  }
+
+  &_left {
+    h2 {
+      font-size: 7.6rem;
+      font-weight: 400;
+      white-space: nowrap;
+      letter-spacing: 9.12px;
+    }
+
+    @include maxW(1023px) {
+      h2 {
+        font-size: 4.9rem;
+        letter-spacing: 5.88px;
+      }
+    }
+  }
+
+  &_right {
+    padding-top: 10px;
+    padding-right: 72px;
+
+    @include maxW(1023px) {
+      padding: 0;
+      margin-top: 60px;
+    }
+  }
+
   &_items {
     margin-bottom: 30px;
 
