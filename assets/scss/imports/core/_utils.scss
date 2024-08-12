@@ -1,0 +1,143 @@
+/* Utils
+------------------------------------------------------------*/
+
+/* underline link */
+.u-underline {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.1;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    backface-visibility: hidden;
+    background-color: currentColor;
+  }
+
+  &:hover:before {
+    animation: lineLink 0.5s;
+  }
+
+  @keyframes lineLink {
+    50% {
+      left: 100%;
+      animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    51% {
+      opacity: 0;
+    }
+    52% {
+      left: -100%;
+    }
+    53% {
+      opacity: 1;
+    }
+    100% {
+      left: 0;
+      animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+/* scroll is blur */
+.js-is-blur {
+  opacity: 0;
+  filter: blur(50px);
+  // filter: blur(15px);
+}
+
+/* text scale */
+.txt3 {
+  transform: scale(0.3, 1);
+  transform-origin: 0 0;
+  width: max-content;
+  text-size-adjust: none;
+}
+
+.txt3-fw {
+  transform: scale(0.3, 1);
+  transform-origin: 0 0;
+  width: 333.333333%; // 100 / 0.3
+  text-size-adjust: none;
+}
+
+.txt7 {
+  transform: scale(0.7, 1);
+  transform-origin: 0 0;
+  width: max-content;
+  text-size-adjust: none;
+}
+
+.txt7-fw {
+  transform: scale(0.7, 1);
+  transform-origin: 0 0;
+  width: 142.857143%;
+  text-size-adjust: none;
+}
+
+/* fonts family */
+.time-fonts {
+  font-family: "Times New Roman", "fot-tsukuaoldmin-pr6n", sans-serif;
+}
+
+.tsu-fonts {
+  font-family: "fot-tsukuaoldmin-pr6n", sans-serif;
+}
+
+/* only device */
+.sp-only,
+.is-hidden {
+  display: none !important;
+}
+
+@include maxW(1023px) {
+  .pc-only {
+    display: none !important;
+  }
+
+  .sp-only {
+    display: block !important;
+  }
+}
+
+/* keyframes */
+@keyframes fadeTab {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+main img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .br1600 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .br1700 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1470px) {
+  .br1470 {
+    display: none;
+  }
+}

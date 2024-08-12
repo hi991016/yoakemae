@@ -1,0 +1,86 @@
+/* Footer
+------------------------------------------------------------*/
+
+.c-footer {
+  &_container {
+    margin-top: 212px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: flex-end;
+
+    p,
+    a {
+      font-size: 4.6rem;
+      line-height: 1;
+      letter-spacing: 5.52px;
+    }
+
+    @include maxW(1023px) {
+      margin-top: 226px;
+      padding-bottom: 13px;
+
+      p,
+      a {
+        font-size: 3rem;
+        letter-spacing: 3.6px;
+      }
+    }
+
+    @include maxW(375px) {
+      p,
+      a {
+        font-size: 2.6rem;
+      }
+    }
+  }
+
+  &_left {
+    display: flex;
+    gap: 120px;
+
+    @include maxW(1023px) {
+      display: block;
+    }
+  }
+
+  &_right {
+    text-align: right;
+    span {
+      font-size: 4rem;
+      letter-spacing: 8px;
+    }
+
+    @include maxW(1023px) {
+      span {
+        font-size: 2.6rem;
+        letter-spacing: 5.2px;
+      }
+    }
+  }
+
+  &_info {
+    &_group {
+      display: flex;
+      gap: 45px;
+    }
+
+    @include maxW(1023px) {
+      display: flex;
+      gap: 55px;
+      margin-top: 4px;
+      &:first-child {
+        margin-top: initial;
+      }
+
+      p {
+        width: calc(28px * 3);
+      }
+
+      &_group {
+        flex: 1;
+        gap: 30px;
+      }
+    }
+  }
+}
