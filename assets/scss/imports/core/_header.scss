@@ -7,7 +7,7 @@
       opacity: 0;
       filter: blur(15px);
       pointer-events: none;
-      transition: opacity .3s ease, filter .3s ease;
+      transition: opacity 0.3s ease, filter 0.3s ease;
 
       &.is-show {
         opacity: 1;
@@ -39,10 +39,17 @@
     right: 25px;
     z-index: 101;
 
+    // display: grid;
+    // grid-template-columns: 300px 66.5px;
+    // align-items: center;
+    // gap: 30px;
+
     @include maxW(1023px) {
       top: 12px;
       right: 15px;
       position: absolute;
+
+      display: block;
     }
   }
 
@@ -54,6 +61,34 @@
         width: 296.51px;
         height: auto;
       }
+    }
+  }
+
+  &_lang {
+    .bogo-language-switcher {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 20px;
+
+      .en-US {
+        position: relative;
+      }
+
+      li {
+        list-style: none outside none;
+        padding: 0;
+        font-size: 4.6rem;
+
+        &.current {
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 6px;
+        }
+      }
+    }
+
+    @include maxW(1023px) {
+      display: none;
     }
   }
 

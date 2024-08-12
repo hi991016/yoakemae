@@ -22,16 +22,6 @@ let scroll = new LocomotiveScroll({
   el: document.querySelector(scrollEl),
   smooth: true,
   lerp: 0.07,
-  // multiplier: 1,
-  // touchMultiplier: 4,
-  // smartphone: {
-  //   smooth: true,
-  //   breakpoint: 1023,
-  // },
-  // tablet: {
-  //   smooth: true,
-  //   breakpoint: 1100,
-  // },
 });
 
 new ResizeObserver(() => scroll.update()).observe(
@@ -157,15 +147,15 @@ const home = () => {
     .to(
       ".js-loading",
       {
-	    delay: 0.3,
+        delay: 0.3,
         autoAlpha: 0,
         blur: 15,
         duration: 1,
         zIndex: -100,
-        ease: "none"
+        ease: "none",
       },
       "-=0.6"
-    )
+    );
 
   //init swiper overview
   const overviewSwiper = new Swiper(".js-overview-swiper", {
@@ -185,37 +175,6 @@ const home = () => {
       },
     },
   });
-
-  // scroll header
-  // gsap.to(".js-header-left", {
-  //   blur: 0,
-  //   opacity: 1,
-  //   pointerEvents: "auto",
-  //   duration: 0.3,
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: ".js-offset-top",
-  //     start: "top top+=20",
-  //     scroller: scrollEl,
-  //     toggleActions: "play none none reverse",
-  //     // markers: true,
-  //   },
-  // });
-  // scroll footer
-  // gsap.to(".js-entry", {
-  //   blur: "15px",
-  //   opacity: 0,
-  //   pointerEvents: "none",
-  //   duration: 0.3,
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: ".js-footer",
-  //     start: "top bottom",
-  //     scroller: scrollEl,
-  //     toggleActions: "play none none reverse",
-  //     // markers: true,
-  //   },
-  // });
   // scroll show text
   const isBlur = gsap.utils.toArray(".js-is-blur");
   isBlur.forEach((box, index) => {
@@ -327,31 +286,31 @@ $(window).on("load resize", function () {
       });
       window.onscroll = function () {
         let scrollTop = $window.scrollTop();
-        console.log('scrollTop', scrollTop)
+        console.log("scrollTop", scrollTop);
         instances.forEach(function (inst) {
           inst.update(scrollTop);
         });
-      }
-    }
+      };
+    };
 
     let moveItItem = function (el) {
       this.el = $(el);
-      this.speed = parseInt(this.el.attr('data-scroll-speed'));
+      this.speed = parseInt(this.el.attr("data-scroll-speed"));
     };
     moveItItem.prototype.update = function (scrollTop) {
       let dist = -scrollTop / (this.speed * 8) + 80;
-      gsap.to(this.el, { y: dist, duration: 0.4, ease: 'none' });
+      gsap.to(this.el, { y: dist, duration: 0.4, ease: "none" });
     };
 
     // intersectionObserver ===============
     const options = {
       threshold: 0.5,
-      rootMargin: '0px 0px -10% 0px'
-    }
+      rootMargin: "0px 0px -10% 0px",
+    };
     // instantiate a new Intersection Observer
     let observer = new IntersectionObserver(onEntry, options);
     // list of elements to observe
-    let elements = document.querySelectorAll('.js-element');
+    let elements = document.querySelectorAll(".js-element");
     // loop through all elements / pass each element to observe method
     for (let elm of elements) {
       observer.observe(elm);
@@ -360,18 +319,32 @@ $(window).on("load resize", function () {
     function onEntry(entry) {
       entry.forEach((change) => {
         if (change.isIntersecting) {
-          $('[data-scroll-speed]').moveIt(); // instantiate
+          $("[data-scroll-speed]").moveIt(); // instantiate
         } else {
-          $('').moveIt(); // quick & dirty
+          $("").moveIt(); // quick & dirty
         }
       });
     }
     // Initialization
     $(function () {
-      $('[data-scroll-speed]').moveIt();
+      $("[data-scroll-speed]").moveIt();
     });
   }
-})
+});
+
+// bogo lang
+const myBogo = setInterval(doBogo, 500);
+const langBogo = document.querySelector(".bogo-language-switcher .current");
+
+function doBogo() {
+  if (langBogo.classList.contains("ja")) {
+    langBogo.innerText = "JP";
+    clearInterval(myBogo);
+  } else {
+    langBogo.innerText = "EN";
+    clearInterval(myBogo);
+  }
+}
 
 // lazy loading
 $("main img")
