@@ -80,11 +80,17 @@
     right: 25px;
     z-index: 101;
 
+    display: grid;
+    grid-template-columns: 300px 66.5px;
+    align-items: center;
+    gap: 30px;
+
     @include maxW(1023px) {
       top: 12px;
       right: 15px;
       position: absolute;
       transform: none !important;
+      display: block;
     }
   }
 
@@ -344,6 +350,39 @@
         line-height: 1.73;
         letter-spacing: 1.32px;
       }
+    }
+  }
+}
+
+// ===== language =====
+.c-lang {
+  &_list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    li:first-child {
+      display: none;
+    }
+
+    .line {
+      font-size: 4rem;
+      letter-spacing: 9.5px;
+      line-height: 100%;
+      margin-top: -5px;
+      font-weight: 300;
+      font-family: $tsu-fonts;
+    }
+  }
+
+  &_items {
+    font-size: 4.6rem;
+    letter-spacing: 5.52px;
+
+    &.current {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
     }
   }
 }

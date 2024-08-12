@@ -39,16 +39,15 @@
     right: 25px;
     z-index: 101;
 
-    // display: grid;
-    // grid-template-columns: 300px 66.5px;
-    // align-items: center;
-    // gap: 30px;
+    display: grid;
+    grid-template-columns: 300px 66.5px;
+    align-items: center;
+    gap: 30px;
 
     @include maxW(1023px) {
       top: 12px;
       right: 15px;
       position: absolute;
-
       display: block;
     }
   }
