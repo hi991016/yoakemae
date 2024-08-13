@@ -16,20 +16,6 @@ if (document.getElementById("entrypage")) {
   );
 }
 
-// ========= toggle bogo =======
-// const myBogo = setInterval(doBogo, 500);
-// const langBogo = document.querySelector(".bogo-language-switcher .current");
-
-// function doBogo() {
-//   if (langBogo.classList.contains("ja")) {
-//     langBogo.innerText = "JP";
-//     clearInterval(myBogo);
-//   } else {
-//     langBogo.innerText = "EN";
-//     clearInterval(myBogo);
-//   }
-// }
-
 // ========= lazy loading =======
 $("main img")
   .on("load", function () {

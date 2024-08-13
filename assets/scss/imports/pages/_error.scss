@@ -1,10 +1,12 @@
 .errorpage {
-  .erorr {
+  .error {
+    left: 50%;
+    line-height: 48px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     &_container {
       line-height: 48px;
