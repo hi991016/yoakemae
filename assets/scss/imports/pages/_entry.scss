@@ -9,7 +9,6 @@
       position: relative;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 110px;
 
       @include maxW(1023px) {
         display: block;
@@ -18,7 +17,7 @@
     }
 
     &_right {
-      grid-column: 2/4;
+      grid-column: 3/5;
     }
 
     &_sticky {
@@ -280,6 +279,313 @@
         margin-top: 0;
         &_items {
           padding: 15.7px 5px;
+        }
+      }
+    }
+
+    &_contact {
+      @include maxW(1023px) {
+        margin-top: 80px;
+      }
+
+      label {
+        position: relative;
+        display: block;
+        width: fit-content;
+
+        p {
+          font-family: $tsu-fonts;
+          font-size: 1.8rem;
+          font-weight: 300;
+          line-height: 1.4;
+        }
+
+        span {
+          position: absolute;
+          right: -20px;
+          top: 5px;
+          transform: scaleY(0.7);
+        }
+      }
+
+      &_items {
+        margin-top: 35px;
+
+        @include maxW(1023px) {
+          margin-top: 25px;
+        }
+      }
+
+      &_fields {
+        width: 100%;
+        min-height: 40px;
+        word-break: break-word;
+        position: relative;
+        padding-top: 15px;
+        padding-bottom: 25px;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          border-bottom: 1px solid #000;
+        }
+
+        small {
+          font-size: 1.2rem;
+          color: #e74c3c;
+          position: absolute;
+          bottom: -15px;
+          left: 0;
+          visibility: hidden;
+        }
+
+        &.error {
+          &:after {
+            border-bottom: 1px solid #e74c3c;
+          }
+
+          small {
+            visibility: visible;
+          }
+        }
+
+        input,
+        textarea,
+        select {
+          margin: 0;
+          padding: 0;
+          background-color: #fff0;
+          border: none;
+          outline: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          font-size: 1.8rem;
+          font-weight: 300;
+          line-height: 1.2;
+          color: #000;
+          position: relative;
+          font-family: $tsu-fonts;
+          -webkit-appearance: none;
+          width: 100%;
+          height: 40px;
+        }
+
+        .custom-textarea-profile {
+          height: 100px;
+        }
+
+        .custom-textarea-recommend {
+          height: 185px;
+        }
+
+        @include maxW(1023px) {
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          input,
+          textarea,
+          select {
+            font-size: 1.6rem;
+          }
+
+          .custom-textarea-profile {
+            height: 125px;
+          }
+
+          .custom-textarea-recommend {
+            height: 255px;
+          }
+        }
+      }
+    }
+
+    &_contact_description {
+      margin-top: 35px;
+
+      font-weight: $tsu-fonts;
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 1.86;
+      letter-spacing: -0.28px;
+    }
+
+    &_contact_privacy {
+      margin-top: 80px;
+      border: 1px solid $black-cl;
+      height: 26.47vw;
+      position: relative;
+
+      @include maxW(1024px) {
+        height: 69vw;
+        margin-top: 35px;
+      }
+
+      &_content {
+        padding: 30px 35px 35px;
+        height: calc(100% - 60px);
+        overflow-y: scroll;
+
+        font-family: $tsu-fonts;
+        font-size: 1.4rem;
+        line-height: 1.86;
+        letter-spacing: -0.28px;
+
+        &::-webkit-scrollbar {
+          width: 18px;
+        }
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ccc;
+          border-radius: 10px;
+          border: 6px solid transparent;
+          background-clip: content-box;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #ccc;
+        }
+
+        @include maxW(1023px) {
+          padding: 20px 25px 25px;
+          height: calc(100% - 55px);
+        }
+      }
+
+      &_check {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        border-top: 1px solid $black-cl;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 45px;
+        background-color: $main-bg-cl;
+
+        p {
+          font-family: $tsu-fonts;
+          font-size: 1.4rem;
+          line-height: 1.86;
+          letter-spacing: -0.28px;
+        }
+
+        input[type="checkbox"] {
+          border: 1px solid #000;
+          border-radius: 0;
+          cursor: pointer;
+          line-height: 0;
+          margin: 0;
+          outline: 0;
+          padding: 0 !important;
+          height: 16px;
+          width: 16px;
+          display: block;
+          -webkit-appearance: none;
+          position: relative;
+
+          &:checked::before {
+            opacity: 1;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            width: 4px;
+            height: 8px;
+            border: solid #000;
+            border-width: 0 1px 1px 0;
+            margin: -1px -1px 0 -1px;
+            transform: rotate(45deg) translate(-50%, -50%);
+            z-index: 2;
+            opacity: 0;
+          }
+        }
+
+        @include maxW(1024px) {
+          height: 55px;
+          padding: 0 25px;
+
+          p {
+            font-size: 1.3rem;
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+
+    &_btn {
+      margin-top: 80px;
+
+      &:hover {
+        button {
+          background-color: #b5b5b5;
+          border: 1px solid #b5b5b5;
+          color: #fff;
+
+          svg path {
+            fill: #fff;
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        height: 120px;
+        color: $black-cl;
+        border: 1px solid $black-cl;
+        position: relative;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+
+      p {
+        height: 100%;
+        font-size: 3.8rem;
+        line-height: 1.4px;
+        letter-spacing: 2.28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include maxW(1023px) {
+          font-size: 2.2rem;
+        }
+      }
+
+      svg {
+        position: absolute;
+        top: 50%;
+        right: 40px;
+        transform: translateY(-50%);
+
+        path {
+          transition: 0.3s ease-in-out;
+        }
+      }
+
+      @include maxW(1023px) {
+        margin-top: 60px;
+        button {
+          height: 80px;
+        }
+        svg {
+          width: 15px;
+          height: auto;
+          right: 25px;
         }
       }
     }
