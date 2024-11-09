@@ -57,6 +57,7 @@ body {
 
   &.fadeout::after {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 

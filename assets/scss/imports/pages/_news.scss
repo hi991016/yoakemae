@@ -1,41 +1,9 @@
 .newspage {
   &_container {
-    margin-top: 270px;
+    margin-top: 256px;
 
     @include maxW(1023px) {
-      margin-top: 200px;
-    }
-  }
-
-  &_wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    @include maxW(1023px) {
-      display: block;
-    }
-  }
-
-  &_left {
-    h2 {
-      font-size: 7.6rem;
-      font-weight: 400;
-      white-space: nowrap;
-      letter-spacing: 9.12px;
-    }
-
-    @include maxW(1023px) {
-      h2 {
-        font-size: 4.9rem;
-        letter-spacing: 5.88px;
-      }
-    }
-  }
-
-  &_right {
-    @include maxW(1023px) {
-      padding: 0;
-      margin-top: 60px;
+      margin-top: 190px;
     }
   }
 
@@ -85,6 +53,8 @@
       p {
         font-size: 2rem;
         opacity: 0.5;
+        margin-left: 3px;
+        margin-bottom: 5px;
       }
 
       h3 {
@@ -92,10 +62,12 @@
         line-height: 1.44;
         letter-spacing: 1.92px;
         font-weight: 300;
-        font-family: $tsu-fonts;
+        font-family: $main-fonts;
+        font-feature-settings: "palt" 1;
       }
 
       @include maxW(1023px) {
+        padding-top: 8px;
         p {
           font-size: 1.6rem;
         }
@@ -109,17 +81,21 @@
     }
 
     &_thumbnail {
-      margin-top: 60px;
+      margin-top: 57px;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
+
+      @include maxW(1023px) {
+        margin-top: 26px;
+      }
     }
 
     &_content {
-      font-family: $tsu-fonts;
+      font-family: $main-fonts;
 
       p,
       h4 {
@@ -134,7 +110,7 @@
         letter-spacing: 1.92px;
         line-height: 1.6;
         font-weight: 300;
-        margin-top: 120px;
+        margin-top: 98px;
       }
 
       p:has(img) {
@@ -143,17 +119,18 @@
       }
 
       p {
-        margin-top: 60px;
+        margin-top: 52px;
         font-size: 1.8rem;
         font-weight: 300;
-        line-height: 1.58;
-        letter-spacing: 2.2px;
+        line-height: 1.55;
+        letter-spacing: 2.65px;
         font-feature-settings: "palt";
 
         a {
           width: fit-content;
           text-decoration: underline;
           text-underline-offset: 3px;
+          display: inline-block;
         }
 
         img {
@@ -165,14 +142,14 @@
 
       @include maxW(1023px) {
         p {
-          margin-top: 35px;
+          margin-top: 30px;
           font-size: 1.6rem;
-          line-height: 1.5;
-          letter-spacing: 1px;
+          line-height: 1.37;
+          letter-spacing: 3px;
         }
 
         h4 {
-          margin-top: 60px;
+          margin-top: 45px;
           font-size: 2.2rem;
           letter-spacing: 1.32px;
         }
@@ -180,11 +157,11 @@
     }
 
     &_control {
-      margin-top: 120px;
+      margin-top: 112px;
       display: flex;
-      gap: 20px;
 
       a {
+        margin-right: 28px;
         font-size: 2rem;
         line-height: 1;
         letter-spacing: 0.4px;
@@ -216,11 +193,11 @@
       }
 
       @include maxW(1023px) {
-        margin-top: 60px;
-        gap: 15px;
+        margin-top: 78px;
 
         a {
           font-size: 1.6rem;
+          margin-right: 25px;
         }
       }
     }

@@ -1,5 +1,5 @@
 const listElm = document.querySelector("#ajaxPost");
-let ppp = 10; // Post per page
+let ppp = 20; // Post per page
 let pageNumber = 1;
 
 function load_posts() {

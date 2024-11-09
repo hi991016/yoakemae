@@ -36,7 +36,7 @@
   &_right {
     position: fixed;
     top: 18px;
-    right: 25px;
+    right: 30px;
     z-index: 101;
 
     display: grid;
@@ -64,42 +64,38 @@
   }
 
   &_lang {
-    .bogo-language-switcher {
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 20px;
+    // .bogo-language-switcher {
+    //   display: flex;
+    //   flex-direction: row-reverse;
+    //   gap: 20px;
 
-      .en-US {
-        position: relative;
-      }
+    //   .en-US {
+    //     position: relative;
+    //   }
 
-      li {
-        list-style: none outside none;
-        padding: 0;
-        font-size: 4.6rem;
+    //   li {
+    //     list-style: none outside none;
+    //     padding: 0;
+    //     font-size: 4.6rem;
 
-        &.current {
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          text-underline-offset: 6px;
-        }
-      }
-    }
-
-    @include maxW(1023px) {
-      display: none;
-    }
+    //     &.current {
+    //       text-decoration: underline;
+    //       text-decoration-thickness: 1px;
+    //       text-underline-offset: 6px;
+    //     }
+    //   }
+    // }
   }
 
   &_nav {
     margin-top: 10px;
     margin-left: 2px;
     display: flex;
-    gap: calc(16px * 3);
+    gap: 38px;
 
     @include maxW(1023px) {
       margin-top: 6px;
-      gap: calc(15px * 3);
+      gap: 35px;
     }
   }
 

@@ -84,11 +84,11 @@
 
 /* fonts family */
 .time-fonts {
-  font-family: "Times New Roman", "fot-tsukuaoldmin-pr6n", sans-serif;
+  font-family: "Times New Roman", "fot-tsukuaoldmin-pr6n", serif;
 }
 
 .tsu-fonts {
-  font-family: "fot-tsukuaoldmin-pr6n", sans-serif;
+  font-family: "fot-tsukuaoldmin-pr6n", serif;
 }
 
 /* only device */
@@ -115,6 +115,10 @@
   }
 }
 
+button.disabled {
+  pointer-events: none !important;
+}
+
 main img {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -139,5 +143,93 @@ main img {
 @media only screen and (max-width: 1470px) {
   .br1470 {
     display: none;
+  }
+}
+
+//
+body.en {
+  //
+  .c-cta_marquee_inner {
+    grid-template-columns: repeat(4, 300px);
+  }
+  .c-contact_newsletter_desc {
+    font-family: "Times New Roman", serif;
+    letter-spacing: 0.8px;
+  }
+  .c-news_items p {
+    margin-left: 0;
+  }
+  .c-news_items h3 {
+    letter-spacing: 0.8px;
+  }
+
+  //
+  .homepage .about_content p {
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+  }
+  .homepage .overview_right {
+    margin-top: 0;
+  }
+  .homepage .overview_ptext {
+    letter-spacing: 0.8px;
+  }
+  .homepage .overview_content h2 {
+    letter-spacing: 0.8px;
+  }
+  .homepage .overview_content_desc {
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+  .homepage .overview_btn p {
+    font-family: "Times New Roman", serif;
+    letter-spacing: 0.8px;
+  }
+  //
+  .entrypage .entry_sticky ul li p {
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+  }
+  .entrypage .entry_top p {
+    font-family: "Times New Roman", serif;
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+  }
+  .entrypage .entry_text h3,
+  .entrypage .entry_text p,
+  .entrypage .entry_text li,
+  .entrypage .entry_text a {
+    letter-spacing: 0px;
+    line-height: 1.3;
+  }
+  .entrypage .entry_btn p {
+    letter-spacing: 0.8px;
+  }
+  .entrypage .entry_complete h2 {
+    letter-spacing: 0.8px;
+  }
+  //
+  .newspage .detail_heading p {
+    margin-left: 0;
+  }
+  .newspage .detail_heading h3 {
+    letter-spacing: 0.8px;
+  }
+  .newspage .detail_content p {
+    letter-spacing: 0.8px;
+  }
+
+  //
+  @include maxW(1023px) {
+    .c-cta_marquee_inner {
+      grid-template-columns: repeat(4, 185px);
+    }
+    .c-cta_marquee_text span.time-fonts {
+      letter-spacing: 3px;
+    }
+    //
+    .entrypage .entry_sticky ul li {
+      width: 5.5em;
+    }
   }
 }

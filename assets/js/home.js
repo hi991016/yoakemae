@@ -194,22 +194,53 @@ const home = () => {
 
   // scroll active link
   const scrollSections = gsap.utils.toArray(".js-sections");
-  const links = gsap.utils.toArray(".js-header-nav li a");
-
+  // const links = gsap.utils.toArray(".js-header-nav li a");
   scrollSections.forEach((section, i) => {
-    const link = links[i];
+    // const link = links[i];
+    const sectionId = section.getAttribute("id");
     ScrollTrigger.create({
       scroller: scrollEl,
       trigger: section,
       start: "top 50%",
       end: "bottom 50%",
-      onEnter: () => link.classList.add("active"),
-      onEnterBack: () => link.classList.add("active"),
-      onLeave: () => link.classList.remove("active"),
-      onLeaveBack: () => link.classList.remove("active"),
+      onEnter: () =>
+        document
+          .querySelector(`[data-scrollto="${sectionId}"]`)
+          .classList.add("active"),
+      onEnterBack: () =>
+        document
+          .querySelector(`[data-scrollto="${sectionId}"]`)
+          .classList.add("active"),
+      onLeave: () =>
+        document
+          .querySelector(`[data-scrollto="${sectionId}"]`)
+          .classList.remove("active"),
+      onLeaveBack: () =>
+        document
+          .querySelector(`[data-scrollto="${sectionId}"]`)
+          .classList.remove("active"),
       // markers: true,
     });
   });
+  // ScrollTrigger.create({
+  //   scroller: scrollEl,
+  //   trigger: "#overview",
+  //   start: "top 50%",
+  //   end: "bottom 50%",
+  //   onEnter: () =>
+  //     document.querySelector(`[data-scrollto="about"]`).classList.add("active"),
+  //   onEnterBack: () =>
+  //     document.querySelector(`[data-scrollto="about"]`).classList.add("active"),
+  //   onLeave: () =>
+  //     document
+  //       .querySelector(`[data-scrollto="about"]`)
+  //       .classList.remove("active"),
+  //   onLeaveBack: () =>
+  //     document
+  //       .querySelector(`[data-scrollto="about"]`)
+  //       .classList.remove("active"),
+  // });
+
   // scroll envent
   const footerSetTop = $(".js-footer").offset().top,
     hSize = $(".js-offset-top").offset().top;

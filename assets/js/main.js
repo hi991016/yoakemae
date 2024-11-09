@@ -1,5 +1,6 @@
 // ========= entry page =======
 if (document.getElementById("entrypage")) {
+  //
   const tabs = document.querySelectorAll(".js-entry-nav li");
   const contents = document.querySelectorAll(".js-entry-content");
 
@@ -14,6 +15,12 @@ if (document.getElementById("entrypage")) {
         .classList.add("show-content");
     })
   );
+  //
+  if (document.querySelector('.js-contact-send')) {
+    document.querySelector('.js-contact-send').addEventListener('click', function () {
+      $(this).addClass("disabled");
+    })
+  }
 }
 
 // ========= lazy loading =======
