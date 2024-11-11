@@ -1,3 +1,14 @@
+//
+const appHeight = () => {
+  const doc = document.documentElement;
+  doc.style.setProperty(
+    "--app-height",
+    `${document.documentElement.clientHeight}px`
+  );
+};
+appHeight();
+window.addEventListener("resize", appHeight);
+
 // ========= entry page =======
 if (document.getElementById("entrypage")) {
   //
@@ -16,10 +27,12 @@ if (document.getElementById("entrypage")) {
     })
   );
   //
-  if (document.querySelector('.js-contact-send')) {
-    document.querySelector('.js-contact-send').addEventListener('click', function () {
-      $(this).addClass("disabled");
-    })
+  if (document.querySelector(".js-contact-send")) {
+    document
+      .querySelector(".js-contact-send")
+      .addEventListener("click", function () {
+        $(this).addClass("disabled");
+      });
   }
 }
 

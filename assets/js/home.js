@@ -1,15 +1,6 @@
 "use strict";
 
 // ===== init =====
-const appHeight = () => {
-  const doc = document.documentElement;
-  doc.style.setProperty(
-    "--app-height",
-    `${document.documentElement.clientHeight}px`
-  );
-};
-window.addEventListener("resize", appHeight);
-
 ["pageshow", "load"].forEach(function (evt) {
   window.addEventListener(evt, function () {
     document.body.classList.remove("fadeout");
@@ -297,7 +288,6 @@ $(document).on(
 );
 
 window.onload = () => {
-  appHeight();
   home();
 };
 
