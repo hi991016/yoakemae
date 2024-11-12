@@ -97,7 +97,7 @@ const addEventOnElements = function (elements, eventType, callback) {
       }
       myInterval = setInterval(function () {
         folienwechsel();
-      }, 2500);
+      }, 2200);
     }
   });
 });

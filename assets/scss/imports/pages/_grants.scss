@@ -241,32 +241,30 @@
             height: 1px;
             position: absolute;
             bottom: 0;
-            left: 0;
+            right: 0;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             background-color: currentColor;
-            animation: swipe 1.5s forwards infinite;
+            animation: line_r_animation 1.5s infinite;
           }
         }
 
-        @keyframes swipe {
-          50% {
-            left: 100%;
-            animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        @keyframes line_r_animation {
+          0% {
+            right: calc(2% + 90px);
+            width: 0px;
           }
-
-          51% {
-            opacity: 0;
+          35% {
+            right: calc(2% + 0px);
+            width: 90px;
           }
-          52% {
-            left: -100%;
-          }
-          53% {
-            opacity: 1;
+          70% {
+            right: calc(2% + 0px);
+            width: 0px;
           }
           100% {
-            left: 0;
-            animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            right: calc(2% + 0px);
+            width: 0px;
           }
         }
       }
@@ -424,7 +422,7 @@
       margin-left: auto;
 
       @include maxW(1023px) {
-        padding: 15px;
+        padding: 110px 15px;
         margin: 0 auto;
       }
     }
