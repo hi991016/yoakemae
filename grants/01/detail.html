@@ -67,15 +67,96 @@
 
 <body class="fadeout">
     <main class="grantspage" id="grantspage">
+        <!-- cursor// -->
+        <div class="cursor cursor-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38.331" height="30.923" viewBox="0 0 38.331 30.923">
+                <path id="Path_1374" data-name="Path 1374"
+                    d="M15.325,0,4.05,13.957v.136H38.33V16.83H4.05v.136L15.325,30.923H12.26L0,15.462,12.26,0Z"
+                    transform="translate(0 0)" fill="#fff" />
+            </svg>
+        </div>
+        <div class="cursor cursor-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38.33" height="30.923" viewBox="0 0 38.33 30.923">
+                <path id="Path_913" data-name="Path 913"
+                    d="M23,0,34.28,13.957v.136H0V16.83H34.28v.136L23,30.923h3.065L38.33,15.462,26.069,0Z"
+                    transform="translate(0 0)" fill="#fff" />
+            </svg>
+        </div>
+        <!-- //cursor -->
+
         <!-- detail// -->
         <section class="detail">
-            <div class="detail_container"></div>
+            <div class="detail_container">
+                <!-- // -->
+                <div class="detail_back">
+                    <a href="##" class="txt3" onclick="history.go(-1); return false;">Back</a>
+                </div>
+
+                <div class="detail_title">
+                    <h2 class="txt3">Yuri Uenishi <sup>(Grand Prix)</sup></h2>
+                    <p class="txt7 pc-only">上西 祐理</p>
+                </div>
+
+                <div class="detail_profile">
+                    <div class="detail_profile_inner">
+                        <p class="txt3">Statement / Profile</p>
+                        <div class="plus">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                <g id="Group_356" data-name="Group 356" transform="translate(-175.5 -729.5)">
+                                    <line id="Line_42" data-name="Line 42" x2="20" transform="translate(175.5 739.5)"
+                                        fill="none" stroke="#000" stroke-width="1" />
+                                    <line id="Line_43" data-name="Line 43" x2="20"
+                                        transform="translate(185.5 729.5) rotate(90)" fill="none" stroke="#000"
+                                        stroke-width="1" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- // -->
+                <div class="detail_inner">
+                    <div class="detail_left pc-only"></div>
+                    <div class="detail_right">
+                        <div class="detail_swiper" data-grants-detail-sw>
+                            <div class="swiper-wrapper">
+                                <div class="detail_slide swiper-slide">
+                                    <figure>
+                                        <img src="/assets/img/home/grants.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="detail_slide swiper-slide">
+                                    <figure>
+                                        <img src="/assets/img/home/grants_2.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="detail_slide swiper-slide">
+                                    <figure>
+                                        <img src="/assets/img/home/profile_anri.webp" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="detail_control">
+                                <button class="button-swiper swiper-button-prev" aria-label="Previous slide"></button>
+                                <button class="button-swiper swiper-button-next" aria-label="Next slide"></button>
+                            </div>
+                            <div class="detail_pager">
+                                <div class="detail_pager_inner txt3-fw">
+                                    <span class="current">1</span>
+                                    <span class="line"></span>
+                                    <span class="total">10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
         <!-- //detail -->
     </main>
     <!-- @script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/assets/js/libs.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/grants.js"></script>
 </body>
 
 </html>

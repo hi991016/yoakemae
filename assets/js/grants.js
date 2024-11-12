@@ -1,3 +1,5 @@
+// ======== GRANTS PAGE =======
+
 "pageshow resize".split(" ").forEach((evt) => {
   window.addEventListener(evt, () => {
     if (window.matchMedia("(min-width: 1024px)").matches) {
@@ -44,7 +46,7 @@
       // #####
     } else {
       const swiperImages = () => {
-        const swiperLb = new Swiper(".js-grant-swiper", {
+        const swiperLb = new Swiper("[data-grants-sw]", {
           loop: true,
           speed: 600,
           slidesPerView: 1,
@@ -87,3 +89,95 @@
     }
   });
 });
+
+// ======== DETAIL PAGE =======
+if ($(".grantspage .detail")) {
+  const swiperDetail = new Swiper("[data-grants-detail-sw]", {
+    loop: true,
+    speed: 600,
+    slidesPerView: 1,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      slideChange: function () {
+        let e = this.realIndex + 1;
+        document.querySelector(".detail_pager .current").innerHTML = e;
+      },
+      beforeInit: function () {
+        let numOfSlides =
+          this.wrapperEl.querySelectorAll(".swiper-slide").length;
+        document.querySelector(".detail_pager .total").innerHTML = numOfSlides;
+      },
+    },
+  });
+
+  // CURSOR
+  const cursorPrev = document.querySelector(".cursor-prev");
+  const cursorNext = document.querySelector(".cursor-next");
+
+  function mousemoveHandler(e) {
+    const target = e.target;
+    const tl = gsap.timeline({
+      defaults: {
+        x: e.clientX,
+        y: e.clientY,
+        ease: "power2.out",
+      },
+    });
+
+    if (
+      document.querySelector(".swiper-button-next") &&
+      document.querySelector(".swiper-button-prev")
+    ) {
+      // hover section slider
+      if (
+        target.tagName.toLowerCase() === "button" &&
+        target.closest(".swiper-button-next")
+      ) {
+        tl.to(cursorPrev, {
+          opacity: 0,
+        }).to(
+          cursorNext,
+          {
+            opacity: 1,
+          },
+          "-=0.5"
+        );
+      } else if (
+        target.tagName.toLowerCase() === "button" &&
+        target.closest(".swiper-button-prev")
+      ) {
+        tl.to(cursorPrev, {
+          opacity: 1,
+        }).to(
+          cursorNext,
+          {
+            opacity: 0,
+          },
+          "-=0.5"
+        );
+      } else {
+        tl.to(".cursor", {
+          opacity: 0,
+        });
+      }
+    }
+  }
+
+  function mouseleaveHandler() {
+    if (document.querySelector(".cursor")) {
+      gsap.to(".cursor", {
+        opacity: 0,
+      });
+    }
+  }
+
+  document.addEventListener("mousemove", mousemoveHandler);
+  document.addEventListener("mouseleave", mouseleaveHandler);
+}

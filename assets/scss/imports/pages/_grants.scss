@@ -1,4 +1,5 @@
 .grantspage {
+  // ====== GRANTS =====
   .grant {
     &_heading {
       margin-top: 270px;
@@ -273,6 +274,255 @@
       @include maxW(1023px) {
         display: block;
       }
+    }
+  }
+  // ====== DETAILS =====
+  .detail {
+    &_container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: var(--app-height);
+      overflow: hidden;
+    }
+
+    &_inner {
+      width: 100%;
+      height: 100%;
+    }
+
+    &_right {
+      width: 77.78%;
+      height: 100%;
+      margin-left: auto;
+
+      @include maxW(1023px) {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    &_back {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      z-index: 5;
+
+      a {
+        font-size: 4.6rem;
+        letter-spacing: 5.52px;
+      }
+
+      @include maxW(1023px) {
+        top: 15px;
+        left: 15px;
+
+        a {
+          font-size: 3rem;
+          letter-spacing: 3.6px;
+        }
+      }
+    }
+
+    &_title {
+      position: fixed;
+      top: 250px;
+      left: 25px;
+      z-index: 5;
+
+      h2 {
+        font-size: 7.6rem;
+        font-weight: 400;
+        letter-spacing: 9.12px;
+
+        sup {
+          font-size: 4rem;
+        }
+      }
+
+      p {
+        font-size: 3.8rem;
+      }
+
+      @include maxW(1023px) {
+        top: auto;
+        bottom: 15px;
+        left: 15px;
+
+        h2 {
+          font-size: 4.9rem;
+          letter-spacing: 5.88px;
+
+          sup {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+
+    &_profile {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      z-index: 5;
+      cursor: pointer;
+
+      &_inner {
+        display: grid;
+        grid-template-columns: 8.6em auto;
+        align-items: center;
+        gap: 12px;
+      }
+
+      p {
+        font-size: 4.6rem;
+        letter-spacing: 5.52px;
+      }
+
+      @include maxW(1023px) {
+        bottom: auto;
+        left: auto;
+        top: 15px;
+        right: 15px;
+
+        &_inner {
+          grid-template-columns: 5.6em auto;
+          gap: 7px;
+        }
+
+        p {
+          font-size: 3rem;
+          letter-spacing: 3.6px;
+        }
+
+        .plus {
+          svg {
+            display: block;
+            width: 15px;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    &_swiper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      padding: 25px 25px 25px 0;
+      margin-left: auto;
+
+      @include maxW(1023px) {
+        padding: 15px;
+        margin: 0 auto;
+      }
+    }
+
+    &_slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: right;
+      }
+
+      @include maxW(1023px) {
+        img {
+          object-position: center;
+        }
+      }
+    }
+
+    &_control {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      .button-swiper {
+        font-size: 0;
+        border: 0;
+        padding: 0;
+        width: 50%;
+        height: 100%;
+        background-color: transparent;
+        z-index: 1;
+        cursor: none;
+
+        &:after {
+          content: "";
+        }
+      }
+
+      .swiper-button-prev {
+        position: absolute;
+        top: 20px;
+        left: 0;
+      }
+
+      .swiper-button-next {
+        position: absolute;
+        top: 20px;
+        right: 0;
+      }
+
+      @include maxW(1023px) {
+        display: none;
+      }
+    }
+
+    &_pager {
+      position: absolute;
+      z-index: 2;
+      bottom: 40px;
+      right: 40px;
+      font-size: 3.6rem;
+      letter-spacing: 4.32px;
+      color: $white-cl;
+      mix-blend-mode: difference;
+      pointer-events: none;
+
+      &_inner {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 30px;
+      }
+
+      .line {
+        display: inline-block;
+        width: 60px;
+        height: 1px;
+        background-color: $white-cl;
+      }
+
+      @include maxW(1023px) {
+        bottom: 16px;
+        right: 15px;
+        font-size: 3rem;
+        letter-spacing: 3.6px;
+      }
+    }
+  }
+
+  // ===== CURSOR =====
+  .cursor {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    mix-blend-mode: difference;
+
+    @include maxW(1023px) {
+      display: none;
     }
   }
 }
