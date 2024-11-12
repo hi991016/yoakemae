@@ -213,24 +213,24 @@ const home = () => {
       // markers: true,
     });
   });
-  // ScrollTrigger.create({
-  //   scroller: scrollEl,
-  //   trigger: "#overview",
-  //   start: "top 50%",
-  //   end: "bottom 50%",
-  //   onEnter: () =>
-  //     document.querySelector(`[data-scrollto="about"]`).classList.add("active"),
-  //   onEnterBack: () =>
-  //     document.querySelector(`[data-scrollto="about"]`).classList.add("active"),
-  //   onLeave: () =>
-  //     document
-  //       .querySelector(`[data-scrollto="about"]`)
-  //       .classList.remove("active"),
-  //   onLeaveBack: () =>
-  //     document
-  //       .querySelector(`[data-scrollto="about"]`)
-  //       .classList.remove("active"),
-  // });
+  ScrollTrigger.create({
+    scroller: scrollEl,
+    trigger: "#overview",
+    start: "top 50%",
+    end: "bottom 50%",
+    onEnter: () =>
+      document.querySelector(`[data-scrollto="about"]`).classList.add("active"),
+    onEnterBack: () =>
+      document.querySelector(`[data-scrollto="about"]`).classList.add("active"),
+    onLeave: () =>
+      document
+        .querySelector(`[data-scrollto="about"]`)
+        .classList.remove("active"),
+    onLeaveBack: () =>
+      document
+        .querySelector(`[data-scrollto="about"]`)
+        .classList.remove("active"),
+  });
 
   // scroll envent
   const footerSetTop = $(".js-footer").offset().top,

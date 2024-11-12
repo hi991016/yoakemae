@@ -2,11 +2,11 @@
 if (window.matchMedia("(min-width: 1024px)").matches) {
   // Showed cover
   $(".home-artist").on("mouseover", function () {
-    let coverColor = $(".artist-link", this).attr("data-color");
-    let dataCover = $(".artist-link", this).attr("data-cover");
+    let coverColor = $(this).attr("data-color");
+    let dataCover = $(this).attr("data-artist");
 
     $(".artist-cover img").attr("hidden", true);
-    $(".artist-name").stop(true, true).css("opacity", 0.04);
+    $(".artist-name").stop(true, true).css("opacity", 0.1);
     $(".artist-name", this).stop(true, true).css("opacity", 1);
     $(".artist-cover").stop(true, true).addClass("showed");
     $(".artist-cover img").stop(true, true).addClass("hovered");
@@ -40,9 +40,31 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   });
 }
 
-const swiperGrant = new Swiper(".js-grant-swiper", {
-  effect: "fade",
-  fadeEffect: {
-    crossFade: true,
-  },
-});
+// ====== SWIPER ======
+let index = 0;
+let swiperLb;
+
+const swiperImages = () => {
+  swiperLb = new Swiper(".js-grant-swiper", {
+    loop: true,
+    speed: 400,
+    slidesPerView: 1,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    on: {
+      init: doSomethingWithActiveSlide,
+      slideChange: doSomethingWithActiveSlide,
+    },
+  });
+};
+swiperImages();
+
+function doSomethingWithActiveSlide() {
+  const EL_currentSlide = this.slides[this.activeIndex];
+  const currentTitle = EL_currentSlide.dataset.cover;
+
+  $("[data-artist]").removeClass("active");
+  $(`[data-artist="${currentTitle}"]`).addClass("active");
+}

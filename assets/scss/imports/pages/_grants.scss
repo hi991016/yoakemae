@@ -76,6 +76,15 @@
       }
     }
 
+    &_items {
+      @include maxW(1023px) {
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+    }
+
     &_link {
       width: fit-content;
       font-size: 7.6rem;
@@ -95,16 +104,11 @@
       }
 
       @include maxW(1023px) {
-        display: none;
         font-size: 4.9rem;
         letter-spacing: 5.88px;
 
         sup {
           font-size: 3rem;
-        }
-
-        &.active {
-          display: block;
         }
       }
     }
