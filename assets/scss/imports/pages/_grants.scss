@@ -364,7 +364,7 @@
       position: fixed;
       bottom: 25px;
       left: 25px;
-      z-index: 5;
+      z-index: 11;
       cursor: pointer;
 
       &_inner {
@@ -374,9 +374,19 @@
         gap: 12px;
       }
 
+      .plus {
+        transition: transform 0.2s linear;
+      }
+
       p {
         font-size: 4.6rem;
         letter-spacing: 5.52px;
+      }
+
+      &.active {
+        .plus {
+          transform: rotate(-45deg);
+        }
       }
 
       @include maxW(1023px) {
@@ -507,6 +517,127 @@
         right: 15px;
         font-size: 3rem;
         letter-spacing: 3.6px;
+      }
+    }
+
+    &_popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: var(--app-height);
+      z-index: 10;
+      background-color: #f8f8f8;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.4s ease-in-out;
+      overflow: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.toggle {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
+      &_inner {
+        width: 41.67%;
+        height: max-content;
+        margin: auto;
+        max-height: 100%;
+        position: relative;
+      }
+
+      &_content {
+        padding: 150px 0;
+
+        .title {
+          font-size: 2.6rem;
+          font-weight: 300;
+          letter-spacing: 1.56px;
+
+          span {
+            font-size: 2.9rem;
+          }
+        }
+
+        .subtitle {
+          font-size: 1.8rem;
+          font-weight: 300;
+
+          span {
+            font-size: 2rem;
+          }
+        }
+
+        p {
+          margin-top: 50px;
+          font-size: 1.8rem;
+          line-height: 1.58;
+          letter-spacing: -0.36px;
+        }
+
+        a {
+          margin-top: 35px;
+          font-size: 1.8rem;
+          text-decoration: underline;
+        }
+
+        .line {
+          width: 45px;
+          height: 1px;
+          background-color: #ccc;
+          display: block;
+          margin: 70px 0;
+        }
+      }
+
+      @include maxW(1023px) {
+        &_inner {
+          width: 100%;
+        }
+
+        &_content {
+          padding: 120px 15px;
+
+          .title {
+            font-size: 2.2rem;
+            letter-spacing: 1.32px;
+
+            span {
+              font-size: 2.4rem;
+            }
+          }
+
+          .subtitle {
+            font-size: 1.6rem;
+
+            span {
+              font-size: 1.8rem;
+            }
+          }
+
+          .line {
+            margin: 50px 0;
+          }
+
+          p {
+            margin-top: 35px;
+            font-size: 1.6rem;
+            line-height: 1.69;
+            letter-spacing: 0.96px;
+          }
+
+          a {
+            font-size: 1.6rem;
+            margin-top: 25px;
+          }
+        }
       }
     }
   }

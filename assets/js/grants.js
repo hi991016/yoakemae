@@ -1,3 +1,15 @@
+"use strict";
+
+// add event on multiple element
+
+const addEventOnElements = function (elements, eventType, callback) {
+  if (elements) {
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].addEventListener(eventType, callback);
+    }
+  }
+};
+
 // ======== GRANTS PAGE =======
 
 "pageshow resize".split(" ").forEach((evt) => {
@@ -92,6 +104,7 @@
 
 // ======== DETAIL PAGE =======
 if ($(".grantspage .detail")) {
+  // SWIPER
   const swiperDetail = new Swiper("[data-grants-detail-sw]", {
     loop: true,
     speed: 600,
@@ -169,7 +182,6 @@ if ($(".grantspage .detail")) {
       }
     }
   }
-
   function mouseleaveHandler() {
     if (document.querySelector(".cursor")) {
       gsap.to(".cursor", {
@@ -177,7 +189,18 @@ if ($(".grantspage .detail")) {
       });
     }
   }
-
   document.addEventListener("mousemove", mousemoveHandler);
   document.addEventListener("mouseleave", mouseleaveHandler);
+
+  // POPUP PROFILE
+  const [profileTogglers, profile] = [
+    document.querySelectorAll("[data-profile-toggler]"),
+    document.querySelector("[data-profile]"),
+  ];
+
+  const toggleText = function () {
+    this.classList.toggle("active");
+    profile.classList.toggle("toggle");
+  };
+  addEventOnElements(profileTogglers, "click", toggleText);
 }
